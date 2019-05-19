@@ -18,8 +18,9 @@ export class HeaderComponent implements OnInit {
   private currentuser : Currentuser;
   private connected : Boolean;
   private message: Message;
+  private modalReference = null;
 
-  constructor(private authenticationservice : AuthenticationService,private modalService: NgbModal) { }
+  constructor(private authenticationservice : AuthenticationService,private modalService: NgbModal, private router: Router) { }
 
   ngOnInit() {
     this.connected = false;
@@ -36,7 +37,9 @@ export class HeaderComponent implements OnInit {
                     const text = 'success';
                     this.message = new Message(text,'success','A2');
                     //console.log(data);
-                    //this.router.navigate(['/welcome'], { queryParams: { returnUrl: this.state.url }});
+                    this.connected = true;
+                    this.modalReference.close();
+                    this.router.navigateByUrl('/lastposition');
                   },
         error =>
                   {
@@ -47,9 +50,9 @@ export class HeaderComponent implements OnInit {
       )};
 
   open(content) {
+    this.modalReference = null;
     this.authentication = new Authentication();
     this.message = null;
-    this.modalService.open(content)
+    this.modalReference = this.modalService.open(content);
   }
-
 }
