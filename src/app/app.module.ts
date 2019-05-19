@@ -16,6 +16,7 @@ import { VirtualzoneComponent } from './component/virtualzone/virtualzone.compon
 import { AuthenticationService } from "./service/authentication.service";
 import {NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { TokenInterceptor } from "./interceptor/tokeninterceptor";
+import { MenuComponent } from './component/menu/menu.component';
 
 
 
@@ -27,7 +28,8 @@ import { TokenInterceptor } from "./interceptor/tokeninterceptor";
     WelcomeComponent,
     LastpositionComponent,
     HistoricalComponent,
-    VirtualzoneComponent
+    VirtualzoneComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,20 @@
 <!------------>
 
 <!-- Body -->
-<router-outlet></router-outlet>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2 collapse d-md-flex bg-light pt-2 min-vh-100" id="sidebar" [hidden]="!connected1">
+            <!-- Menu Vertical  -->
+            <app-menu></app-menu>
+            <!------------>
+        </div>
+        <div class="col pt-2">
+            <!-- Contenet Right -->
+            <router-outlet></router-outlet>
+            <!------------>
+        </div>
+    </div>
+</div>
 <!---------->
 
 <!-- Footer -->
