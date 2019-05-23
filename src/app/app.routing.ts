@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'lastposition', component: LastpositionComponent },
   { path: 'historical', component: HistoricalComponent },
   { path: 'virtualzone', component: VirtualzoneComponent },
+  { path: 'welcome', component: WelcomeComponent },
 ];
 
 @NgModule({

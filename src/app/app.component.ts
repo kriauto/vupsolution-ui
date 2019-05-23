@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+import {AuthenticationService} from "./service/authentication.service";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-root',
@@ -8,20 +11,19 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   //title = 'Accueil';
   private menu : Boolean;
-  private toggle : Boolean;
+  private connected : Boolean;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
-    this.menu = true;
-    this.toggle = false;
-  }
-
-  public hideMenu(){
-    this.menu = true;
-    this.toggle = false;
+    this.connected = true;
+    if(this.connected){
+      this.menu = false;
+      this.router.navigateByUrl('/welcome');
+    }
   }
 
   public displayMenu(){
-    this.menu = false;
-    this.toggle = true;
+    this.menu = !this.menu;
   }
 }
