@@ -1,26 +1,13 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>VUP-SOLUTION</title>
-</head>
-
-<body>
 <div class="wrapper">
     <!-- Sidebar Menu -->
-    <nav id="sidebar" [hidden]="menu">
+    <nav id="sidebar" [hidden]="!menu">
         <div class="sidebar-header">
             <h3>VUP-SOLUTION</h3>
         </div>
-
         <ul class="list-unstyled components">
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Administration</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li>
+                <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Administration</a>
+                <ul class="collapse list-unstyled" id="adminSubmenu">
                     <li>
                         <a [routerLink]="['/welcome']">Entreprise</a>
                     </li>
@@ -36,11 +23,8 @@
                 </ul>
             </li>
             <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
+                <a href="#prodSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Production</a>
+                <ul class="collapse list-unstyled" id="prodSubmenu">
                     <li>
                         <a href="#">Page 1</a>
                     </li>
@@ -53,19 +37,32 @@
                 </ul>
             </li>
             <li>
-                <a href="#">Portfolio</a>
+                <a href="#qualSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Qualité</a>
+                <ul class="collapse list-unstyled" id="qualSubmenu">
+                    <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 3</a>
+                    </li>
+                </ul>
             </li>
             <li>
-                <a href="#">Contact</a>
-            </li>
-        </ul>
-
-        <ul class="list-unstyled CTAs">
-            <li>
-                <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
-            </li>
-            <li>
-                <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                <a href="#mainSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Maintenance</a>
+                <ul class="collapse list-unstyled" id="mainSubmenu">
+                    <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 3</a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </nav>
@@ -76,7 +73,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
 
-                <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="displayMenu()">
+                <button type="button" id="sidebarCollapse" [hidden]="!connected" class="btn btn-info" (click)="displayMenu()">
                     <i class="fas fa-align-left"></i>
                 </button>
                 <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,27 +82,54 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Page</a>
+                        <li class="nav-item" [hidden]="connected">
+                            <a class="nav-link" [routerLink]="['#']"  (click)="open(content)">
+                                <i class="fas fa-sign-in-alt"></i>
+                                Connexion
+                                <span class="sr-only">(current)</span>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Page</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Page</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Page</a>
+                        <li class="nav-item" [hidden]="!connected">
+                            <a class="nav-link" [routerLink]="['#']"  (click)="logout()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Déconnexion
+                                <span class="sr-only">(current)</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+        <!-- Begin Modal Connexion -->
+        <ng-template #content let-modal let-c="close" let-d="dismiss">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Connexion</h5>
+                <button type="button" class="close"  aria-label="Close" (click)="c('Close click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>
+                <form>
+                    <div class="form-group">
+                        <label for="login">Identifiant</label>
+                        <input type="login" [(ngModel)]="authentication.login"  class="form-control" id="login" name="login">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" [(ngModel)]="authentication.password" class="form-control" id="password" name="password">
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">se souvenir de moi</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="login()">Se connecter</button>
+            </div>
+        </ng-template>
+        <!-- End Modal Connexion -->
         <!---- Body ---->
         <router-outlet></router-outlet>
     </div>
-</div>
-
-</body>
-
-</html>

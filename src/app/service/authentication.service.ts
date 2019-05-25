@@ -14,10 +14,10 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient, private adapter: CurrentUserAdapter) { }
 
-  private baseUrl = 'http://www.kriauto.ma/api/login';
+  private baseUrl = 'http://www.kriauto.ma/api';
 
   login(authentication: Authentication) : Observable<Currentuser>{
-    return this.http.post(`${this.baseUrl}`, authentication).pipe(
+    return this.http.post(`${this.baseUrl+'/login'}`, authentication).pipe(
       // Adapt each item in the raw data array
       //map((data: any) => data.map(item => this.adapter.adapt(item))),
       // Adapt item object

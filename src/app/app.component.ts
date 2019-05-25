@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthenticationService} from "./service/authentication.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {Authentication} from "./model/authentication";
+import {Currentuser} from "./model/currentuser";
+import {Message} from "./model/message";
 
 @Component({
   selector: 'app-root',
@@ -9,21 +12,59 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  //title = 'Accueil';
-  private menu : Boolean;
   private connected : Boolean;
+  private menu : Boolean;
+  private authentication : Authentication = new Authentication();
+  private currentuser : Currentuser;
+  private message: Message;
+  private modalReference = null;
 
-  constructor(private router: Router) { }
+  constructor(private authenticationservice : AuthenticationService,private modalService: NgbModal, private router: Router) { }
 
   ngOnInit() {
-    this.connected = true;
-    if(this.connected){
-      this.menu = false;
-      this.router.navigateByUrl('/welcome');
-    }
+    this.connected = false;
+    this.menu = false;
+    this.message = null;
   }
 
-  public displayMenu(){
+  login() {
+    this.authenticationservice.login(this.authentication)
+        .subscribe(
+            data =>
+            {
+              this.currentuser = data;
+              this.authenticationservice.addToken(this.currentuser.authToken.toString());
+              const text = 'success';
+              this.message = new Message(text,'success','A2');
+              //console.log(data);
+              this.connected = true;
+              this.menu = true;
+              this.modalReference.close();
+              this.router.navigateByUrl('/lastposition');
+            },
+            error =>
+            {
+              const text = error['error']['message'];
+              //console.log(error);
+              this.message = new Message(text,'error','A2');
+            }
+        )};
+
+  logout() {
+              this.authenticationservice.deleteToken();
+              this.connected = false;
+              this.menu = false;
+              this.router.navigateByUrl('/');
+        };
+
+  open(content) {
+    this.modalReference = null;
+    this.authentication = new Authentication();
+    this.message = null;
+    this.modalReference = this.modalService.open(content);
+  }
+
+  displayMenu(){
     this.menu = !this.menu;
   }
 }
