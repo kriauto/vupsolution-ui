@@ -12,13 +12,77 @@
                         <a [routerLink]="['/welcome']">Entreprise</a>
                     </li>
                     <li>
-                        <a [routerLink]="['/virtualzone']">Usine</a>
+                        <a [routerLink]="['/virtualzone']">Atelier</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Ligne de production</a>
                     </li>
                     <li>
                         <a [routerLink]="['/historical']">Atelier</a>
                     </li>
                     <li>
-                        <a [routerLink]="['/historical']">Ligne de production</a>
+                        <a [routerLink]="['/historical']">Non conformité</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Mode opératoire</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Opération</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Machine</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Client</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Commande</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Produit</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Gamme Opératoire</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#persoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ressources Humaines</a>
+                <ul class="collapse list-unstyled" id="persoSubmenu">
+                    <li>
+                        <a [routerLink]="['/historical']">Jours Feriés</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Jours Fermeture</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Agenda</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Shift</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Catégorie Compétences</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Compétences</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Role</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Employé</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#affecSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Affectations</a>
+                <ul class="collapse list-unstyled" id="affecSubmenu">
+                    <li>
+                        <a [routerLink]="['/historical']">Machine</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Employé</a>
                     </li>
                 </ul>
             </li>
@@ -26,13 +90,13 @@
                 <a href="#prodSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Production</a>
                 <ul class="collapse list-unstyled" id="prodSubmenu">
                     <li>
-                        <a href="#">Page 1</a>
+                        <a [routerLink]="['/historical']">Plannification</a>
                     </li>
                     <li>
-                        <a href="#">Page 2</a>
+                        <a [routerLink]="['/historical']">Saisie</a>
                     </li>
                     <li>
-                        <a href="#">Page 3</a>
+                        <a [routerLink]="['/historical']">Supervision</a>
                     </li>
                 </ul>
             </li>
@@ -40,13 +104,13 @@
                 <a href="#qualSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Qualité</a>
                 <ul class="collapse list-unstyled" id="qualSubmenu">
                     <li>
-                        <a href="#">Page 1</a>
+                        <a [routerLink]="['/historical']">Plannification</a>
                     </li>
                     <li>
-                        <a href="#">Page 2</a>
+                        <a [routerLink]="['/historical']">Saisie</a>
                     </li>
                     <li>
-                        <a href="#">Page 3</a>
+                        <a [routerLink]="['/historical']">Supervision</a>
                     </li>
                 </ul>
             </li>
@@ -54,15 +118,21 @@
                 <a href="#mainSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Maintenance</a>
                 <ul class="collapse list-unstyled" id="mainSubmenu">
                     <li>
-                        <a href="#">Page 1</a>
+                        <a [routerLink]="['/historical']">Plannification</a>
                     </li>
                     <li>
-                        <a href="#">Page 2</a>
+                        <a [routerLink]="['/historical']">Saisie</a>
                     </li>
                     <li>
-                        <a href="#">Page 3</a>
+                        <a [routerLink]="['/historical']">Supervision</a>
                     </li>
                 </ul>
+            </li>
+            <li>
+                <a herf="#" class="dropdown-toggle">AMDEC</a>
+            </li>
+            <li>
+                <a herf="#" class="dropdown-toggle">Stock</a>
             </li>
         </ul>
     </nav>
