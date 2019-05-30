@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
-
 import { AppComponent } from './app.component';
 import { AppRouting } from './app.routing';
 
@@ -14,10 +13,10 @@ import { LastpositionComponent } from './component/lastposition/lastposition.com
 import { HistoricalComponent } from './component/historical/historical.component';
 import { VirtualzoneComponent } from './component/virtualzone/virtualzone.component';
 import { AuthenticationService } from "./service/authentication.service";
-import {NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TokenInterceptor } from "./interceptor/tokeninterceptor";
 import { MenuComponent } from './component/menu/menu.component';
-
+import { EnterpriseComponent } from './component/enterprise/enterprise.component';
 
 
 @NgModule({
@@ -29,21 +28,24 @@ import { MenuComponent } from './component/menu/menu.component';
     LastpositionComponent,
     HistoricalComponent,
     VirtualzoneComponent,
-    MenuComponent
+    MenuComponent,
+    EnterpriseComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRouting,
-    NgbModule
+    NgbModule,
+    AppRouting
+
   ],
+  exports: [],
   providers: [AuthenticationService,
               {
                provide: HTTP_INTERCEPTORS,
                useClass: TokenInterceptor,
                multi: true
-              },
+              },NgbModalConfig, NgbModal
               ],
   bootstrap: [AppComponent]
 })

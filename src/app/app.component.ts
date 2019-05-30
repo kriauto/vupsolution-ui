@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
-import {AuthenticationService} from "./service/authentication.service";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {Authentication} from "./model/authentication";
-import {Currentuser} from "./model/currentuser";
-import {Message} from "./model/message";
+import { Router } from "@angular/router";
+import { AuthenticationService}  from "./service/authentication.service";
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Authentication } from "./model/authentication";
+import { Currentuser } from "./model/currentuser";
+import { Message }  from "./model/message";
 
 @Component({
   selector: 'app-root',
@@ -17,9 +17,16 @@ export class AppComponent implements OnInit {
   private authentication : Authentication = new Authentication();
   private currentuser : Currentuser;
   private message: Message;
-  private modalReference = null;
+  private modalReference;
 
-  constructor(private authenticationservice : AuthenticationService,private modalService: NgbModal, private router: Router) { }
+  constructor(private authenticationservice : AuthenticationService
+              ,private config: NgbModalConfig
+              ,private modalService: NgbModal
+              ,private router: Router) {
+      // customize default values of modals used by this component tree
+      config.backdrop = 'static';
+      config.keyboard = false;
+  }
 
   ngOnInit() {
     this.connected = false;
@@ -40,7 +47,7 @@ export class AppComponent implements OnInit {
               this.connected = true;
               this.menu = true;
               this.modalReference.close();
-              this.router.navigateByUrl('/lastposition');
+              this.router.navigateByUrl('/enterprise');
             },
             error =>
             {
