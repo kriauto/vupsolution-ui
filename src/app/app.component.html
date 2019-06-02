@@ -1,6 +1,6 @@
 <div class="wrapper">
     <!-- Sidebar Menu -->
-    <nav id="sidebar" [hidden]="!menu">
+    <nav id="sidebar" [hidden]="!menu" [ngClass]="{'active': !menu}">
         <div class="sidebar-header">
             <h3>VUP-SOLUTION</h3>
         </div>
@@ -12,77 +12,30 @@
                         <a [routerLink]="['/welcome']">Entreprise</a>
                     </li>
                     <li>
-                        <a [routerLink]="['/virtualzone']">Atelier</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Ligne de production</a>
+                        <a [routerLink]="['/virtualzone']">Usine</a>
                     </li>
                     <li>
                         <a [routerLink]="['/historical']">Atelier</a>
                     </li>
                     <li>
-                        <a [routerLink]="['/historical']">Non conformité</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Mode opératoire</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Opération</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Machine</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Client</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Commande</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Produit</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Gamme Opératoire</a>
+                        <a [routerLink]="['/historical']">Ligne de production</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#persoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ressources Humaines</a>
-                <ul class="collapse list-unstyled" id="persoSubmenu">
+                <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Resources Humaines</a>
+                <ul class="collapse list-unstyled" id="adminSubmenu">
                     <li>
-                        <a [routerLink]="['/historical']">Jours Feriés</a>
+                        <a [routerLink]="['/welcome']">Entreprise</a>
                     </li>
                     <li>
-                        <a [routerLink]="['/historical']">Jours Fermeture</a>
+                        <a [routerLink]="['/virtualzone']">Usine</a>
                     </li>
                     <li>
-                        <a [routerLink]="['/historical']">Agenda</a>
+                        <a [routerLink]="['/historical']">Atelier</a>
                     </li>
                     <li>
-                        <a [routerLink]="['/historical']">Shift</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Catégorie Compétences</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Compétences</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Role</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Employé</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#affecSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Affectations</a>
-                <ul class="collapse list-unstyled" id="affecSubmenu">
-                    <li>
-                        <a [routerLink]="['/historical']">Machine</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Employé</a>
+                        <a [routerLink]="['/historical']">Ligne de production</a>
                     </li>
                 </ul>
             </li>
@@ -90,13 +43,16 @@
                 <a href="#prodSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Production</a>
                 <ul class="collapse list-unstyled" id="prodSubmenu">
                     <li>
-                        <a [routerLink]="['/historical']">Plannification</a>
+                        <a [routerLink]="['/welcome']">Entreprise</a>
                     </li>
                     <li>
-                        <a [routerLink]="['/historical']">Saisie</a>
+                        <a [routerLink]="['/virtualzone']">Usine</a>
                     </li>
                     <li>
-                        <a [routerLink]="['/historical']">Supervision</a>
+                        <a [routerLink]="['/historical']">Atelier</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Ligne de production</a>
                     </li>
                 </ul>
             </li>
@@ -104,13 +60,16 @@
                 <a href="#qualSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Qualité</a>
                 <ul class="collapse list-unstyled" id="qualSubmenu">
                     <li>
-                        <a [routerLink]="['/historical']">Plannification</a>
+                        <a [routerLink]="['/welcome']">Entreprise</a>
                     </li>
                     <li>
-                        <a [routerLink]="['/historical']">Saisie</a>
+                        <a [routerLink]="['/virtualzone']">Usine</a>
                     </li>
                     <li>
-                        <a [routerLink]="['/historical']">Supervision</a>
+                        <a [routerLink]="['/historical']">Atelier</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Ligne de production</a>
                     </li>
                 </ul>
             </li>
@@ -118,55 +77,63 @@
                 <a href="#mainSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Maintenance</a>
                 <ul class="collapse list-unstyled" id="mainSubmenu">
                     <li>
-                        <a [routerLink]="['/historical']">Plannification</a>
+                        <a [routerLink]="['/welcome']">Entreprise</a>
                     </li>
                     <li>
-                        <a [routerLink]="['/historical']">Saisie</a>
+                        <a [routerLink]="['/virtualzone']">Usine</a>
                     </li>
                     <li>
-                        <a [routerLink]="['/historical']">Supervision</a>
+                        <a [routerLink]="['/historical']">Atelier</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/historical']">Ligne de production</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a herf="#" class="dropdown-toggle">AMDEC</a>
+                <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Amdec</a>
+                <ul class="collapse list-unstyled" id="adminSubmenu">
+                    <li>
+                        <a [routerLink]="['/welcome']">Entreprise</a>
+                    </li>
+                </ul>
             </li>
             <li>
-                <a herf="#" class="dropdown-toggle">Stock</a>
+                <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Stock</a>
+                <ul class="collapse list-unstyled" id="adminSubmenu">
+                    <li>
+                        <a [routerLink]="['/welcome']">Entreprise</a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </nav>
 
     <!-- Page Content  -->
-    <div id="content">
+    <div id="content" [ngClass]="{'active': !menu}">
         <!---- NavBar ---->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-
-                <button type="button" id="sidebarCollapse" [hidden]="!connected" class="btn btn-info" (click)="displayMenu()">
-                    <i class="fas fa-align-left"></i>
-                </button>
-                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-align-justify"></i>
-                </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item" [hidden]="connected">
-                            <a class="nav-link" [routerLink]="['#']"  (click)="open(content)">
+                            <a class="nav-link" href="#"  (click)="open(content)">
                                 <i class="fas fa-sign-in-alt"></i>
                                 Connexion
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item" [hidden]="!connected">
-                            <a class="nav-link" [routerLink]="['#']"  (click)="logout()">
+                            <a class="nav-link" href="#"  (click)="logout()">
                                 <i class="fas fa-sign-out-alt"></i>
                                 Déconnexion
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                     </ul>
+                    <button type="button" id="sidebarCollapse" [hidden]="!connected" class="btn btn-info" (click)="displayMenu()">
+                        <i class="fas fa-align-left"></i>
+                    </button>
                 </div>
             </div>
         </nav>

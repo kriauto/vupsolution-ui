@@ -1,69 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["styles"],{
 
-/***/ "./node_modules/bootstrap/dist/css/bootstrap.min.css":
-/*!***********************************************************!*\
-  !*** ./node_modules/bootstrap/dist/css/bootstrap.min.css ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../raw-loader!../../../postcss-loader/lib??embedded!./bootstrap.min.css */ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./node_modules/bootstrap/dist/css/bootstrap.min.css");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/bootstrap/dist/css/sticky-footer-navbar.css":
-/*!******************************************************************!*\
-  !*** ./node_modules/bootstrap/dist/css/sticky-footer-navbar.css ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../raw-loader!../../../postcss-loader/lib??embedded!./sticky-footer-navbar.css */ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./node_modules/bootstrap/dist/css/sticky-footer-navbar.css");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./node_modules/bootstrap/dist/css/bootstrap.min.css":
-/*!*********************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./node_modules/postcss-loader/lib??embedded!./node_modules/bootstrap/dist/css/bootstrap.min.css ***!
-  \*********************************************************************************************************************************/
+/***/ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./src/assets/bootstrap/css/bootstrap.min.css":
+/*!**************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./node_modules/postcss-loader/lib??embedded!./src/assets/bootstrap/css/bootstrap.min.css ***!
+  \**************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -71,14 +11,14 @@ module.exports = "/*!\n * Bootstrap v4.3.1 (https://getbootstrap.com/)\n * Copyr
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./node_modules/bootstrap/dist/css/sticky-footer-navbar.css":
-/*!****************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./node_modules/postcss-loader/lib??embedded!./node_modules/bootstrap/dist/css/sticky-footer-navbar.css ***!
-  \****************************************************************************************************************************************/
+/***/ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./src/assets/sidebare/css/sidebare.css":
+/*!********************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./node_modules/postcss-loader/lib??embedded!./src/assets/sidebare/css/sidebare.css ***!
+  \********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* Sticky footer styles\n-------------------------------------------------- */\nhtml {\n  position: relative;\n  min-height: 100%;\n}\nbody {\n  /* Margin bottom by footer height */\n  margin-bottom: 60px;\n}\n.footer {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  /* Set the fixed height of the footer here */\n  height: 60px;\n  line-height: 60px; /* Vertically center the text there */\n  background-color: #f5f5f6;\n}\n/* Custom page CSS\n-------------------------------------------------- */\n/* Not required for template or sticky footer method. */\nbody > .container {\n  padding: 60px 15px 0;\n}\n.footer > .container {\n  padding-right: 15px;\n  padding-left: 15px;\n}\ncode {\n  font-size: 80%;\n}\n\n"
+module.exports = "\n\n@import \"https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700\";\n/*\n    DEMO STYLE\n*/\nbody {\n    font-family: 'Poppins', sans-serif;\n    background: #fafafa;\n}\np {\n    font-family: 'Poppins', sans-serif;\n    font-size: 1.1em;\n    font-weight: 300;\n    line-height: 1.7em;\n    color: #999;\n}\na,\na:hover,\na:focus {\n    color: inherit;\n    text-decoration: none;\n    transition: all 0.3s;\n}\n.navbar {\n    padding: 15px 10px;\n    background: #fff;\n    border: none;\n    border-radius: 0;\n    margin-bottom: 40px;\n    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);\n}\n.navbar-btn {\n    box-shadow: none;\n    outline: none !important;\n    border: none;\n}\n.line {\n    width: 100%;\n    height: 1px;\n    border-bottom: 1px dashed #ddd;\n    margin: 40px 0;\n}\n/* ---------------------------------------------------\n    SIDEBAR STYLE\n----------------------------------------------------- */\n.wrapper {\n    display: flex;\n    width: 100%;\n}\n#sidebar {\n    width: 250px;\n    position: fixed;\n    top: 0;\n    left: 0;\n    height: 100vh;\n    z-index: 999;\n    background: #7386D5;\n    color: #fff;\n    transition: all 0.3s;\n}\n#sidebar.active {\n    margin-left: -250px;\n}\n#sidebar .sidebar-header {\n    padding: 20px;\n    background: #6d7fcc;\n}\n#sidebar ul.components {\n    padding: 20px 0;\n    border-bottom: 1px solid #47748b;\n}\n#sidebar ul p {\n    color: #fff;\n    padding: 10px;\n}\n#sidebar ul li a {\n    padding: 10px;\n    font-size: 1.1em;\n    display: block;\n}\n#sidebar ul li a:hover {\n    color: #7386D5;\n    background: #fff;\n}\n#sidebar ul li.active>a,\na[aria-expanded=\"true\"] {\n    color: #fff;\n    background: #6d7fcc;\n}\na[data-toggle=\"collapse\"] {\n    position: relative;\n}\n.dropdown-toggle::after {\n    display: block;\n    position: absolute;\n    top: 50%;\n    right: 20px;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n}\nul ul a {\n    font-size: 0.9em !important;\n    padding-left: 30px !important;\n    background: #6d7fcc;\n}\nul.CTAs {\n    padding: 20px;\n}\nul.CTAs a {\n    text-align: center;\n    font-size: 0.9em !important;\n    display: block;\n    border-radius: 5px;\n    margin-bottom: 5px;\n}\na.download {\n    background: #fff;\n    color: #7386D5;\n}\na.article,\na.article:hover {\n    background: #6d7fcc !important;\n    color: #fff !important;\n}\n/* ---------------------------------------------------\n    CONTENT STYLE\n----------------------------------------------------- */\n#content {\n    width: calc(100% - 250px);\n    padding: 40px;\n    min-height: 100vh;\n    transition: all 0.3s;\n    position: absolute;\n    top: 0;\n    right: 0;\n}\n#content.active {\n    width: 100%;\n}\n/* ---------------------------------------------------\n    MEDIAQUERIES\n----------------------------------------------------- */\n@media (max-width: 768px) {\n    #sidebar {\n        margin-left: -250px;\n    }\n    #sidebar.active {\n        margin-left: 0;\n    }\n    #content {\n        width: 100%;\n    }\n    #content.active {\n        width: calc(100% - 250px);\n    }\n    #sidebarCollapse span {\n        display: none;\n    }\n}"
 
 /***/ }),
 
@@ -584,6 +524,66 @@ module.exports = function (css) {
 
 /***/ }),
 
+/***/ "./src/assets/bootstrap/css/bootstrap.min.css":
+/*!****************************************************!*\
+  !*** ./src/assets/bootstrap/css/bootstrap.min.css ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/raw-loader!../../../../node_modules/postcss-loader/lib??embedded!./bootstrap.min.css */ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./src/assets/bootstrap/css/bootstrap.min.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./src/assets/sidebare/css/sidebare.css":
+/*!**********************************************!*\
+  !*** ./src/assets/sidebare/css/sidebare.css ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/raw-loader!../../../../node_modules/postcss-loader/lib??embedded!./sidebare.css */ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./src/assets/sidebare/css/sidebare.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./src/styles.css":
 /*!************************!*\
   !*** ./src/styles.css ***!
@@ -615,15 +615,15 @@ if(false) {}
 /***/ }),
 
 /***/ 2:
-/*!*********************************************************************************************************************************************!*\
-  !*** multi ./src/styles.css ./node_modules/bootstrap/dist/css/bootstrap.min.css ./node_modules/bootstrap/dist/css/sticky-footer-navbar.css ***!
-  \*********************************************************************************************************************************************/
+/*!******************************************************************************************************************!*\
+  !*** multi ./src/styles.css ./src/assets/bootstrap/css/bootstrap.min.css ./src/assets/sidebare/css/sidebare.css ***!
+  \******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /home/abdelhaq/workspace/vupsolution-ui/src/styles.css */"./src/styles.css");
-__webpack_require__(/*! /home/abdelhaq/workspace/vupsolution-ui/node_modules/bootstrap/dist/css/bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
-module.exports = __webpack_require__(/*! /home/abdelhaq/workspace/vupsolution-ui/node_modules/bootstrap/dist/css/sticky-footer-navbar.css */"./node_modules/bootstrap/dist/css/sticky-footer-navbar.css");
+__webpack_require__(/*! /home/abdelhaq/workspace/vupsolution-ui/src/assets/bootstrap/css/bootstrap.min.css */"./src/assets/bootstrap/css/bootstrap.min.css");
+module.exports = __webpack_require__(/*! /home/abdelhaq/workspace/vupsolution-ui/src/assets/sidebare/css/sidebare.css */"./src/assets/sidebare/css/sidebare.css");
 
 
 /***/ })

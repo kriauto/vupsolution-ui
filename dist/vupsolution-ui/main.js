@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "a,button { outline: none; }"
+module.exports = "/* ---------------------------------------------------\n    SIDEBAR STYLE\n----------------------------------------------------- */\n\n.wrapper {\n    display: flex;\n    width: 100%;\n    align-items: stretch;\n}\n\n#sidebar {\n    min-width: 250px;\n    max-width: 250px;\n    background: #7386D5;\n    color: #fff;\n    transition: all 0.3s;\n}\n\n#sidebar.active {\n    margin-left: -250px;\n}\n\n#sidebar .sidebar-header {\n    padding: 20px;\n    background: #6d7fcc;\n    height: 72px;\n}\n\n#sidebar ul.components {\n    padding: 0px 0;\n}\n\n#sidebar ul p {\n    color: #fff;\n    padding: 10px;\n}\n\n#sidebar ul li a {\n    padding: 10px;\n    font-size: 1.1em;\n    display: block;\n}\n\n#sidebar ul li a:hover {\n    color: #7386D5;\n    background: #fff;\n}\n\n#sidebar ul li.active>a,\na[aria-expanded=\"true\"] {\n    color: #fff;\n    background: #6d7fcc;\n}\n\na[data-toggle=\"collapse\"] {\n    position: relative;\n}\n\n.dropdown-toggle::after {\n    display: block;\n    position: absolute;\n    top: 50%;\n    right: 20px;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n}\n\nul ul a {\n    font-size: 0.9em !important;\n    padding-left: 30px !important;\n    background: #6d7fcc;\n}\n\nul.CTAs {\n    padding: 20px;\n}\n\nul.CTAs a {\n    text-align: center;\n    font-size: 0.9em !important;\n    display: block;\n}\n\na.download {\n    background: #fff;\n    color: #7386D5;\n}\n\na.article,\na.article:hover {\n    background: #6d7fcc !important;\n    color: #fff !important;\n}\n\n/* ---------------------------------------------------\n    CONTENT STYLE\n----------------------------------------------------- */\n\n#content {\n    width: 100%;\n    padding: 0px;\n    min-height: 100vh;\n    transition: all 0.3s;\n}\n\n/* ---------------------------------------------------\n    MEDIAQUERIES\n----------------------------------------------------- */\n\n@media (max-width: 768px) {\n    #sidebar {\n        margin-left: -250px;\n    }\n    #sidebar.active {\n        margin-left: 0;\n    }\n    #sidebarCollapse span {\n        display: none;\n    }\n}\n\na,button { outline: none; }"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = "a,button { outline: none; }"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Header -->\n<app-header></app-header>\n<!------------>\n\n<!-- Body -->\n<div class=\"container-fluid\">\n    <div class=\"row\">\n        <div class=\"col-2 collapse d-md-flex bg-light pt-2 min-vh-100\" id=\"sidebar\" [hidden]=\"!connected1\">\n            <!-- Menu Vertical  -->\n            <app-menu></app-menu>\n            <!------------>\n        </div>\n        <div class=\"col pt-2\">\n            <!-- Contenet Right -->\n            <router-outlet></router-outlet>\n            <!------------>\n        </div>\n    </div>\n</div>\n<!---------->\n\n<!-- Footer -->\n<app-footer></app-footer>\n<!------------>\n"
+module.exports = "<div class=\"wrapper\">\n    <!-- Sidebar Menu -->\n    <nav id=\"sidebar\" [hidden]=\"!menu\">\n        <div class=\"sidebar-header\">\n            <h3>VUP-SOLUTION</h3>\n        </div>\n        <ul class=\"list-unstyled components\">\n            <li>\n                <a href=\"#adminSubmenu\" data-toggle=\"collapse\" aria-expanded=\"false\" class=\"dropdown-toggle\">Administration</a>\n                <ul class=\"collapse list-unstyled\" id=\"adminSubmenu\">\n                    <li>\n                        <a [routerLink]=\"['/enterprise']\">Entreprise</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/virtualzone']\">Atelier</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Ligne de production</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Non conformité</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Mode opératoire</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Opération</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Machine</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Client</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Commande</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Order Fabrication</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Produit</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Gamme Opératoire</a>\n                    </li>\n                </ul>\n            </li>\n            <li>\n                <a href=\"#persoSubmenu\" data-toggle=\"collapse\" aria-expanded=\"false\" class=\"dropdown-toggle\">Resources Humaines</a>\n                <ul class=\"collapse list-unstyled\" id=\"persoSubmenu\">\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Jours Feriés</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Jours Fermeture</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Agenda</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Shift</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Catégorie Compétences</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Compétences</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Role</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Employé</a>\n                    </li>\n                </ul>\n            </li>\n            <li>\n                <a href=\"#affecSubmenu\" data-toggle=\"collapse\" aria-expanded=\"false\" class=\"dropdown-toggle\">Affectations</a>\n                <ul class=\"collapse list-unstyled\" id=\"affecSubmenu\">\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Machine</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Employé</a>\n                    </li>\n                </ul>\n            </li>\n            <li>\n                <a href=\"#prodSubmenu\" data-toggle=\"collapse\" aria-expanded=\"false\" class=\"dropdown-toggle\">Production</a>\n                <ul class=\"collapse list-unstyled\" id=\"prodSubmenu\">\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Plannification</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Saisie</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Supervision</a>\n                    </li>\n                </ul>\n            </li>\n            <li>\n                <a href=\"#qualSubmenu\" data-toggle=\"collapse\" aria-expanded=\"false\" class=\"dropdown-toggle\">Qualité</a>\n                <ul class=\"collapse list-unstyled\" id=\"qualSubmenu\">\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Plannification</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Saisie</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Supervision</a>\n                    </li>\n                </ul>\n            </li>\n            <li>\n                <a href=\"#mainSubmenu\" data-toggle=\"collapse\" aria-expanded=\"false\" class=\"dropdown-toggle\">Maintenance</a>\n                <ul class=\"collapse list-unstyled\" id=\"mainSubmenu\">\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Plannification</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Saisie</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/historical']\">Supervision</a>\n                    </li>\n                </ul>\n            </li>\n            <li>\n                <a [routerLink]=\"['/historical']\" class=\"dropdown-toggle\">AMDEC</a>\n            </li>\n            <li>\n                <a [routerLink]=\"['/historical']\" class=\"dropdown-toggle\">Stock</a>\n            </li>\n        </ul>\n    </nav>\n\n    <!-- Page Content  -->\n    <div id=\"content\">\n        <!---- NavBar ---->\n        <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n            <div class=\"container-fluid\">\n\n                <button type=\"button\" id=\"sidebarCollapse\" [hidden]=\"!connected\" class=\"btn btn-info\" (click)=\"displayMenu()\">\n                    <i class=\"fas fa-align-left\"></i>\n                </button>\n\n                <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n                    <ul class=\"nav navbar-nav ml-auto\">\n                        <li class=\"nav-item\" [hidden]=\"connected\">\n                            <a class=\"nav-link\" href=\"#\"  (click)=\"open(content)\">\n                                <i class=\"fas fa-sign-in-alt\"></i>\n                                Connexion\n                                <span class=\"sr-only\">(current)</span>\n                            </a>\n                        </li>\n                        <li class=\"nav-item\" [hidden]=\"!connected\">\n                            <a class=\"nav-link\" href=\"#\"   (click)=\"logout()\">\n                                <i class=\"fas fa-sign-out-alt\"></i>\n                                Déconnexion\n                                <span class=\"sr-only\">(current)</span>\n                            </a>\n                        </li>\n                    </ul>\n                </div>\n            </div>\n        </nav>\n        <!-- Begin Modal Connexion -->\n        <ng-template #content let-modal let-c=\"close\" let-d=\"dismiss\">\n            <div class=\"modal-header\">\n                <h5 class=\"modal-title\" id=\"exampleModalLabel\">Connexion</h5>\n                <button type=\"button\" class=\"close\"  aria-label=\"Close\" (click)=\"c('Close click')\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n            <div class=\"modal-body\">\n                <div *ngIf=\"message\" [ngClass]=\"{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }\">{{message.text}}</div>\n                <form>\n                    <div class=\"form-group\">\n                        <label for=\"login\">Identifiant</label>\n                        <input type=\"login\" [(ngModel)]=\"authentication.login\"  class=\"form-control\" id=\"login\" name=\"login\">\n                    </div>\n                    <div class=\"form-group\">\n                        <label for=\"password\">Mot de passe</label>\n                        <input type=\"password\" [(ngModel)]=\"authentication.password\" class=\"form-control\" id=\"password\" name=\"password\">\n                    </div>\n                    <div class=\"form-check\">\n                        <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\n                        <label class=\"form-check-label\" for=\"exampleCheck1\">se souvenir de moi</label>\n                    </div>\n                </form>\n            </div>\n            <div class=\"modal-footer\">\n                <button type=\"button\" class=\"btn btn-primary\" (click)=\"login()\">Se connecter</button>\n            </div>\n        </ng-template>\n        <!-- End Modal Connexion -->\n        <!---- Body ---->\n        <router-outlet></router-outlet>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -56,22 +56,88 @@ module.exports = "<!-- Header -->\n<app-header></app-header>\n<!------------>\n\
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _service_authentication_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./service/authentication.service */ "./src/app/service/authentication.service.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
+/* harmony import */ var _model_authentication__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./model/authentication */ "./src/app/model/authentication.ts");
+/* harmony import */ var _model_message__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./model/message */ "./src/app/model/message.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+    function AppComponent(authenticationservice, config, modalService, router) {
+        this.authenticationservice = authenticationservice;
+        this.config = config;
+        this.modalService = modalService;
+        this.router = router;
+        this.authentication = new _model_authentication__WEBPACK_IMPORTED_MODULE_4__["Authentication"]();
+        // customize default values of modals used by this component tree
+        config.backdrop = 'static';
+        config.keyboard = false;
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.connected = false;
+        this.menu = false;
+        this.message = null;
+    };
+    AppComponent.prototype.login = function () {
+        var _this = this;
+        this.authenticationservice.login(this.authentication)
+            .subscribe(function (data) {
+            _this.currentuser = data;
+            _this.authenticationservice.addToken(_this.currentuser.authToken.toString());
+            var text = 'success';
+            _this.message = new _model_message__WEBPACK_IMPORTED_MODULE_5__["Message"](text, 'success', 'A2');
+            //console.log(data);
+            _this.connected = true;
+            _this.menu = true;
+            _this.modalReference.close();
+            _this.router.navigateByUrl('/enterprise');
+        }, function (error) {
+            var text = error['error']['message'];
+            //console.log(error);
+            _this.message = new _model_message__WEBPACK_IMPORTED_MODULE_5__["Message"](text, 'error', 'A2');
+        });
+    };
+    ;
+    AppComponent.prototype.logout = function () {
+        this.authenticationservice.deleteToken();
+        this.connected = false;
+        this.menu = false;
+        this.router.navigateByUrl('/');
+    };
+    ;
+    AppComponent.prototype.open = function (content) {
+        this.modalReference = null;
+        this.authentication = new _model_authentication__WEBPACK_IMPORTED_MODULE_4__["Authentication"]();
+        this.message = null;
+        this.modalReference = this.modalService.open(content);
+    };
+    AppComponent.prototype.displayMenu = function () {
+        this.menu = !this.menu;
+    };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
-        })
+        }),
+        __metadata("design:paramtypes", [_service_authentication_service__WEBPACK_IMPORTED_MODULE_2__["AuthenticationService"],
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["NgbModalConfig"],
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["NgbModal"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -106,12 +172,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
 /* harmony import */ var _interceptor_tokeninterceptor__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./interceptor/tokeninterceptor */ "./src/app/interceptor/tokeninterceptor.ts");
 /* harmony import */ var _component_menu_menu_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./component/menu/menu.component */ "./src/app/component/menu/menu.component.ts");
+/* harmony import */ var _component_enterprise_enterprise_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./component/enterprise/enterprise.component */ "./src/app/component/enterprise/enterprise.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -141,21 +209,23 @@ var AppModule = /** @class */ (function () {
                 _component_lastposition_lastposition_component__WEBPACK_IMPORTED_MODULE_9__["LastpositionComponent"],
                 _component_historical_historical_component__WEBPACK_IMPORTED_MODULE_10__["HistoricalComponent"],
                 _component_virtualzone_virtualzone_component__WEBPACK_IMPORTED_MODULE_11__["VirtualzoneComponent"],
-                _component_menu_menu_component__WEBPACK_IMPORTED_MODULE_15__["MenuComponent"]
+                _component_menu_menu_component__WEBPACK_IMPORTED_MODULE_15__["MenuComponent"],
+                _component_enterprise_enterprise_component__WEBPACK_IMPORTED_MODULE_16__["EnterpriseComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
-                _app_routing__WEBPACK_IMPORTED_MODULE_5__["AppRouting"],
-                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_13__["NgbModule"]
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_13__["NgbModule"],
+                _app_routing__WEBPACK_IMPORTED_MODULE_5__["AppRouting"]
             ],
+            exports: [],
             providers: [_service_authentication_service__WEBPACK_IMPORTED_MODULE_12__["AuthenticationService"],
                 {
                     provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"],
                     useClass: _interceptor_tokeninterceptor__WEBPACK_IMPORTED_MODULE_14__["TokenInterceptor"],
                     multi: true
-                },
+                }, _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_13__["NgbModalConfig"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_13__["NgbModal"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
@@ -183,6 +253,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _component_lastposition_lastposition_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./component/lastposition/lastposition.component */ "./src/app/component/lastposition/lastposition.component.ts");
 /* harmony import */ var _component_historical_historical_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./component/historical/historical.component */ "./src/app/component/historical/historical.component.ts");
 /* harmony import */ var _component_virtualzone_virtualzone_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./component/virtualzone/virtualzone.component */ "./src/app/component/virtualzone/virtualzone.component.ts");
+/* harmony import */ var _component_enterprise_enterprise_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./component/enterprise/enterprise.component */ "./src/app/component/enterprise/enterprise.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -195,11 +266,14 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
     { path: '', component: _component_welcome_welcome_component__WEBPACK_IMPORTED_MODULE_2__["WelcomeComponent"] },
+    { path: 'enterprise', component: _component_enterprise_enterprise_component__WEBPACK_IMPORTED_MODULE_6__["EnterpriseComponent"] },
     { path: 'lastposition', component: _component_lastposition_lastposition_component__WEBPACK_IMPORTED_MODULE_3__["LastpositionComponent"] },
     { path: 'historical', component: _component_historical_historical_component__WEBPACK_IMPORTED_MODULE_4__["HistoricalComponent"] },
     { path: 'virtualzone', component: _component_virtualzone_virtualzone_component__WEBPACK_IMPORTED_MODULE_5__["VirtualzoneComponent"] },
+    { path: 'welcome', component: _component_welcome_welcome_component__WEBPACK_IMPORTED_MODULE_2__["WelcomeComponent"] },
 ];
 var AppRouting = /** @class */ (function () {
     function AppRouting() {
@@ -211,6 +285,69 @@ var AppRouting = /** @class */ (function () {
         })
     ], AppRouting);
     return AppRouting;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/component/enterprise/enterprise.component.css":
+/*!***************************************************************!*\
+  !*** ./src/app/component/enterprise/enterprise.component.css ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/component/enterprise/enterprise.component.html":
+/*!****************************************************************!*\
+  !*** ./src/app/component/enterprise/enterprise.component.html ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  enterprise works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/component/enterprise/enterprise.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/component/enterprise/enterprise.component.ts ***!
+  \**************************************************************/
+/*! exports provided: EnterpriseComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EnterpriseComponent", function() { return EnterpriseComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var EnterpriseComponent = /** @class */ (function () {
+    function EnterpriseComponent() {
+    }
+    EnterpriseComponent.prototype.ngOnInit = function () {
+    };
+    EnterpriseComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-enterprise',
+            template: __webpack_require__(/*! ./enterprise.component.html */ "./src/app/component/enterprise/enterprise.component.html"),
+            styles: [__webpack_require__(/*! ./enterprise.component.css */ "./src/app/component/enterprise/enterprise.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], EnterpriseComponent);
+    return EnterpriseComponent;
 }());
 
 
@@ -298,7 +435,7 @@ module.exports = "a,button { outline: none; }"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Begin Menu -->\n<header>\n  <nav class=\"navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark\">\n    <a class=\"navbar-brand\" href=\"#\">VUP-SOLUTION</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n      </ul>\n      \n      <ul class=\"navbar-nav \">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\" [hidden]=\"connected\" (click)=\"open(content)\">\n            <i class=\"fas fa-sign-in-alt\"></i>\n            Connexion\n            <span class=\"sr-only\">(current)</span>\n          </a>\n        </li>\n        <li class=\"nav-item\" [hidden]=\"!connected\">\n          <a class=\"nav-link\" href=\"#\" data-toggle=\"modal\" data-target=\"#exampleModal\">\n            <i class=\"fas fa-sign-out-alt\"></i>\n            Déconnexion\n            <span class=\"sr-only\">(current)</span>\n          </a>\n        </li>\n      </ul>\n    </div>\n  </nav>\n\n</header>\n<!-- End Menu -->\n<!-- Begin Modal Connexion -->\n<ng-template #content let-modal let-c=\"close\" let-d=\"dismiss\">\n  <div class=\"modal-header\">\n    <h5 class=\"modal-title\" id=\"exampleModalLabel\">Connexion</h5>\n    <button type=\"button\" class=\"close\"  aria-label=\"Close\" (click)=\"c('Close click')\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <div *ngIf=\"message\" [ngClass]=\"{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }\">{{message.text}}</div>\n    <form>\n      <div class=\"form-group\">\n        <label for=\"login\">Identifiant</label>\n        <input type=\"login\" [(ngModel)]=\"authentication.login\"  class=\"form-control\" id=\"login\" name=\"login\">\n      </div>\n      <div class=\"form-group\">\n        <label for=\"password\">Mot de passe</label>\n        <input type=\"password\" [(ngModel)]=\"authentication.password\" class=\"form-control\" id=\"password\" name=\"password\">\n      </div>\n      <div class=\"form-check\">\n        <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\n        <label class=\"form-check-label\" for=\"exampleCheck1\">se souvenir de moi</label>\n      </div>\n    </form>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" class=\"btn btn-primary\" (click)=\"login()\">Se connecter</button>\n  </div>\n</ng-template>\n<!-- End Modal Connexion -->\n\n"
+module.exports = "<!-- Begin Menu -->\n<header>\n  <nav class=\"navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark\">\n    <a class=\"navbar-brand\" href=\"#\">VUP-SOLUTION</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n      <ul class=\"navbar-nav mr-auto\">\n      </ul>\n      \n      <ul class=\"navbar-nav \">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\" [hidden]=\"connected\" (click)=\"open(content)\">\n            <i class=\"fas fa-sign-in-alt\"></i>\n            Connexion\n            <span class=\"sr-only\">(current)</span>\n          </a>\n        </li>\n        <li class=\"nav-item\" [hidden]=\"!connected\">\n          <a class=\"nav-link\" href=\"#\" data-toggle=\"modal\" data-target=\"#exampleModal\">\n            <i class=\"fas fa-sign-out-alt\"></i>\n            Déconnexion\n            <span class=\"sr-only\">(current)</span>\n          </a>\n        </li>\n      </ul>\n    </div>\n  </nav>\n</header>\n<!-- End Menu -->\n<!-- Begin Modal Connexion -->\n<ng-template #content let-modal let-c=\"close\" let-d=\"dismiss\">\n  <div class=\"modal-header\">\n    <h5 class=\"modal-title\" id=\"exampleModalLabel\">Connexion</h5>\n    <button type=\"button\" class=\"close\"  aria-label=\"Close\" (click)=\"c('Close click')\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <div *ngIf=\"message\" [ngClass]=\"{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }\">{{message.text}}</div>\n    <form>\n      <div class=\"form-group\">\n        <label for=\"login\">Identifiant</label>\n        <input type=\"login\" [(ngModel)]=\"authentication.login\"  class=\"form-control\" id=\"login\" name=\"login\">\n      </div>\n      <div class=\"form-group\">\n        <label for=\"password\">Mot de passe</label>\n        <input type=\"password\" [(ngModel)]=\"authentication.password\" class=\"form-control\" id=\"password\" name=\"password\">\n      </div>\n      <div class=\"form-check\">\n        <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\n        <label class=\"form-check-label\" for=\"exampleCheck1\">se souvenir de moi</label>\n      </div>\n    </form>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" class=\"btn btn-primary\" (click)=\"login()\">Se connecter</button>\n  </div>\n</ng-template>\n<!-- End Modal Connexion -->\n\n"
 
 /***/ }),
 
@@ -529,7 +666,7 @@ module.exports = ".nav-link[data-toggle].collapsed:after {\n    content: \"  +\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ul id=\"accordion1\" class=\"nav nav-pills flex-column\">\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" data-toggle=\"collapse\" href=\"#item-1\" data-parent=\"#accordion1\">Item 1</a>\n    <div id=\"item-1\" class=\"collapse show\">\n      <ul class=\"nav flex-column ml-3\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#/virtualzone\">Sub 1-1</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">Sub 1-2</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">Sub 1-3</a>\n        </li>\n      </ul>\n    </div>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" data-toggle=\"collapse\" href=\"#item-2\" data-parent=\"#accordion1\">Item 2</a>\n    <div id=\"item-2\" class=\"collapse\">\n      <ul class=\"nav flex-column ml-3\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">Sub 2-1</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">Sub 2-2</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">Sub 2-3</a>\n        </li>\n      </ul>\n    </div>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" data-toggle=\"collapse\" href=\"#item-3\" data-parent=\"#accordion1\">Item 3</a>\n    <div id=\"item-3\" class=\"collapse\">\n      <ul class=\"nav flex-column ml-3\">\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">Sub 3-1</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">Sub 3-2</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">Sub 3-3</a>\n        </li>\n      </ul>\n    </div>\n  </li>\n</ul>\n"
+module.exports = "<!-- Sidebar Menu -->\n<nav id=\"sidebar\" [hidden]=\"menu\">\n  <div class=\"sidebar-header\">\n    <h3>Bootstrap Sidebar</h3>\n  </div>\n\n  <ul class=\"list-unstyled components\">\n    <p>Dummy Heading</p>\n    <li class=\"active\">\n      <a href=\"#homeSubmenu\" data-toggle=\"collapse\" aria-expanded=\"false\" class=\"dropdown-toggle\">Home</a>\n      <ul class=\"collapse list-unstyled\" id=\"homeSubmenu\">\n        <li>\n          <a [routerLink]=\"['/welcome']\">Home 1</a>\n        </li>\n        <li>\n          <a [routerLink]=\"['/virtualzone']\">Home 2</a>\n        </li>\n        <li>\n          <a [routerLink]=\"['/historical']\">Home 3</a>\n        </li>\n      </ul>\n    </li>\n    <li>\n      <a href=\"#\">About</a>\n    </li>\n    <li>\n      <a href=\"#pageSubmenu\" data-toggle=\"collapse\" aria-expanded=\"false\" class=\"dropdown-toggle\">Pages</a>\n      <ul class=\"collapse list-unstyled\" id=\"pageSubmenu\">\n        <li>\n          <a href=\"#\">Page 1</a>\n        </li>\n        <li>\n          <a href=\"#\">Page 2</a>\n        </li>\n        <li>\n          <a href=\"#\">Page 3</a>\n        </li>\n      </ul>\n    </li>\n    <li>\n      <a href=\"#\">Portfolio</a>\n    </li>\n    <li>\n      <a href=\"#\">Contact</a>\n    </li>\n  </ul>\n\n  <ul class=\"list-unstyled CTAs\">\n    <li>\n      <a href=\"https://bootstrapious.com/tutorial/files/sidebar.zip\" class=\"download\">Download source</a>\n    </li>\n    <li>\n      <a href=\"https://bootstrapious.com/p/bootstrap-sidebar\" class=\"article\">Back to article</a>\n    </li>\n  </ul>\n</nav>"
 
 /***/ }),
 
@@ -655,7 +792,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Begin page content -->\nWelcome\n<!-- Begin page content -->\n"
+module.exports = "<!-- Begin page content -->\n<div class=\"d-flex justify-content-center\">Welcome</div>\n<!-- Begin page content -->\n"
 
 /***/ }),
 
@@ -1113,11 +1250,11 @@ var AuthenticationService = /** @class */ (function () {
     function AuthenticationService(http, adapter) {
         this.http = http;
         this.adapter = adapter;
-        this.baseUrl = 'http://www.kriauto.ma/api/login';
+        this.baseUrl = 'http://www.kriauto.ma/api';
     }
     AuthenticationService.prototype.login = function (authentication) {
         var _this = this;
-        return this.http.post("" + this.baseUrl, authentication).pipe(
+        return this.http.post("" + (this.baseUrl + '/login'), authentication).pipe(
         // Adapt each item in the raw data array
         //map((data: any) => data.map(item => this.adapter.adapt(item))),
         // Adapt item object

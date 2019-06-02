@@ -14,9 +14,10 @@ import { LastpositionComponent } from './component/lastposition/lastposition.com
 import { HistoricalComponent } from './component/historical/historical.component';
 import { VirtualzoneComponent } from './component/virtualzone/virtualzone.component';
 import { AuthenticationService } from "./service/authentication.service";
-import {NgbModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TokenInterceptor } from "./interceptor/tokeninterceptor";
 import { MenuComponent } from './component/menu/menu.component';
+import { EnterpriseComponent } from './component/enterprise/enterprise.component';
 
 
 
@@ -29,21 +30,24 @@ import { MenuComponent } from './component/menu/menu.component';
     LastpositionComponent,
     HistoricalComponent,
     VirtualzoneComponent,
-    MenuComponent
+    MenuComponent,
+    EnterpriseComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRouting,
-    NgbModule
+    NgbModule,
+    AppRouting
+
   ],
+  exports: [],
   providers: [AuthenticationService,
               {
                provide: HTTP_INTERCEPTORS,
                useClass: TokenInterceptor,
                multi: true
-              },
+              },NgbModalConfig, NgbModal
               ],
   bootstrap: [AppComponent]
 })
