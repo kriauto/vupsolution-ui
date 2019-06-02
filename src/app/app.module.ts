@@ -18,6 +18,7 @@ import { NgbModal, NgbModalConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { TokenInterceptor } from "./interceptor/tokeninterceptor";
 import { MenuComponent } from './component/menu/menu.component';
 import { EnterpriseComponent } from './component/enterprise/enterprise.component';
+import { FormulaireComponent } from './component/formulaire/formulaire.component';
 
 
 
@@ -31,7 +32,8 @@ import { EnterpriseComponent } from './component/enterprise/enterprise.component
     HistoricalComponent,
     VirtualzoneComponent,
     MenuComponent,
-    EnterpriseComponent
+    EnterpriseComponent,
+    FormulaireComponent
   ],
   imports: [
     BrowserModule,

@@ -109,7 +109,7 @@ a[data-toggle="collapse"] {
 .dropdown-toggle::after {
     display: block;
     position: absolute;
-    top: 50%;
+    top: 20px;
     right: 20px;
 
 }
@@ -181,5 +181,3 @@ a.article:hover {
         display: none;
     }
 }
-
-a,button { outline: none; }

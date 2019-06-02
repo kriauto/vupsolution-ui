@@ -6,6 +6,7 @@ import { LastpositionComponent } from './component/lastposition/lastposition.com
 import { HistoricalComponent } from './component/historical/historical.component';
 import { VirtualzoneComponent } from './component/virtualzone/virtualzone.component';
 import { EnterpriseComponent } from "./component/enterprise/enterprise.component";
+import { FormulaireComponent } from "./component/formulaire/formulaire.component";
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'historical', component: HistoricalComponent },
   { path: 'virtualzone', component: VirtualzoneComponent },
   { path: 'welcome', component: WelcomeComponent },
+  { path: 'form', component: FormulaireComponent },
 ];
 
 @NgModule({
