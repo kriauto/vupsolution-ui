@@ -181,3 +181,5 @@ a.article:hover {
         display: none;
     }
 }
+
+a,button { outline: none; }
