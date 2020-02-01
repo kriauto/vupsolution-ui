@@ -3,17 +3,21 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "vupsolution-ui": {
+    "kriauto-web": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/vupsolution-ui",
+            "outputPath": "dist/kriauto-web",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,17 +27,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "src/assets/bootstrap/css/bootstrap.min.css",
-              "src/assets/sidebare/css/sidebare.css"
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.js",
+              "src/styles.scss"
             ],
             "scripts": [
-              "src/assets/jquery/js/jquery-3.3.1.slim.min.js",
-              "src/assets/sidebare/js/solid.js",
-              "src/assets/fontawesome/js/fontawesome.js",
-              "src/assets/sidebare/js/popper.min.js",
-              "src/assets/bootstrap/js/bootstrap.min.js"
-
+              "./node_modules/jquery/dist/jquery.min.js"
             ]
           },
           "configurations": {
@@ -52,25 +52,32 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "vupsolution-ui:build"
+            "browserTarget": "kriauto-web:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "vupsolution-ui:build:production"
+              "browserTarget": "kriauto-web:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "vupsolution-ui:build"
+            "browserTarget": "kriauto-web:build"
           }
         },
         "test": {
@@ -81,15 +88,11 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/assets/bootstrap/css/bootstrap.min.css",
-              "src/assets/sidebare/css/sidebare.css"
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.scss"
             ],
-            "scripts": [
-              "src/assets/sidebare/js/solid.js",
-              "src/assets/sidebare/js/popper.min.js",
-              "src/assets/bootstrap/js/bootstrap.min.js",
-              "src/assets/fontawesome/js/fontawesome.js"
-            ],
+            "scripts": [],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -110,19 +113,20 @@
         }
       }
     },
-    "vupsolution-ui-e2e": {
+    "kriauto-web-e2e": {
       "root": "e2e/",
       "projectType": "application",
+      "prefix": "",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "vupsolution-ui:serve"
+            "devServerTarget": "kriauto-web:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "vupsolution-ui:serve:production"
+              "devServerTarget": "kriauto-web:serve:production"
             }
           }
         },
@@ -138,5 +142,5 @@
       }
     }
   },
-  "defaultProject": "vupsolution-ui"
+  "defaultProject": "kriauto-web"
 }

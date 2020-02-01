@@ -1,77 +1,81 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
-import { AuthenticationService}  from "./service/authentication.service";
-import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Authentication } from "./model/authentication";
-import { Currentuser } from "./model/currentuser";
-import { Message }  from "./model/message";
+import { Component, TemplateRef, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import { FormGroup, FormBuilder } from "@angular/forms";
+
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+
+import { UserService } from './user.service';
+import { User } from './user';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  private connected : Boolean;
-  private menu : Boolean;
-  private authentication : Authentication = new Authentication();
-  private currentuser : Currentuser;
-  private message: Message;
-  private modalReference;
 
-  constructor(private authenticationservice : AuthenticationService
-              ,private config: NgbModalConfig
-              ,private modalService: NgbModal
-              ,private router: Router) {
-      // customize default values of modals used by this component tree
-      config.backdrop = 'static';
-      config.keyboard = false;
+export class AppComponent implements OnInit {
+  islogged : boolean;
+  failed   : boolean;
+  success  : boolean;
+  userForm : FormGroup;
+  modalRef : BsModalRef;
+  user     : User;
+  error    : Error;
+
+  constructor(private router: Router, public fb: FormBuilder,private modalService: BsModalService, private userApi: UserService) {
+    this.mainForm();
   }
 
   ngOnInit() {
-    this.connected = false;
-    this.menu = false;
-    this.message = null;
+    this.user     = new User();
+    this.error    = new Error();
+    this.islogged = false ;
   }
 
-  login() {
-    this.authenticationservice.login(this.authentication)
-        .subscribe(
-            data =>
-            {
-              this.currentuser = data;
-              this.authenticationservice.addToken(this.currentuser.authToken.toString());
-              const text = 'success';
-              this.message = new Message(text,'success','A2');
-              //console.log(data);
-              this.connected = true;
-              this.menu = true;
-              this.modalReference.close();
-              this.router.navigateByUrl('/enterprise');
-            },
-            error =>
-            {
-              const text = error['error']['message'];
-              //console.log(error);
-              this.message = new Message(text,'error','A2');
-            }
-        )};
-
-  logout() {
-              this.authenticationservice.deleteToken();
-              this.connected = false;
-              this.menu = false;
-              this.router.navigateByUrl('/');
-        };
-
-  open(content) {
-    this.modalReference = null;
-    this.authentication = new Authentication();
-    this.message = null;
-    this.modalReference = this.modalService.open(content);
+  mainForm() {
+    this.userForm = this.fb.group({
+      login: [''],
+      password: ['']
+    })
   }
 
-  displayMenu(){
-    this.menu = !this.menu;
+
+
+  login(){
+    this.error    = new Error();
+    console.log(" userForm -> "+this.userForm.get('login').value+this.userForm.get('password').value);
+    this.userApi.loginApi(this.userForm.value)
+      .subscribe(res => {
+        this.user     = Object.assign(new User(),res);
+        this.islogged = true;
+        this.failed   = false;
+        this.success  = true;
+        localStorage.setItem('token',this.user.authToken);
+        this.modalRef.hide();
+        this.router.navigate(['']);
+        console.log(" user  "+this.user.authToken);
+      }, err => {
+        this.error   = Object.assign(new Error(),err.error);
+        this.failed  = true;
+        this.success = false;
+        console.log(" error "+this.error.message);
+      });
+  }
+
+  logout(){
+    this.islogged = false;
+    localStorage.removeItem('token');
+    this.router.navigate(['']);
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.userForm = this.fb.group({
+      login: [''],
+      password: ['']
+    })
+    this.failed   = true ;
+    this.success  = true ;
+    this.modalRef = this.modalService.show(template);
   }
 }

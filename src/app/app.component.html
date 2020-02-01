@@ -1,172 +1,88 @@
-<div class="wrapper">
-    <!-- Sidebar Menu -->
-    <nav id="sidebar" [hidden]="!menu" [ngClass]="{'active': !menu}">
-        <div class="sidebar-header">
-            <h3>VUP-SOLUTION</h3>
-        </div>
-        <ul class="list-unstyled components">
-            <li>
-                <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Administration</a>
-                <ul class="collapse list-unstyled" id="adminSubmenu">
-                    <li>
-                        <a [routerLink]="['/welcome']">Entreprise</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/virtualzone']">Usine</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Atelier</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Ligne de production</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Resources Humaines</a>
-                <ul class="collapse list-unstyled" id="adminSubmenu">
-                    <li>
-                        <a [routerLink]="['/welcome']">Entreprise</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/virtualzone']">Usine</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Atelier</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Ligne de production</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#prodSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Production</a>
-                <ul class="collapse list-unstyled" id="prodSubmenu">
-                    <li>
-                        <a [routerLink]="['/welcome']">Entreprise</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/virtualzone']">Usine</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Atelier</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Ligne de production</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#qualSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Qualité</a>
-                <ul class="collapse list-unstyled" id="qualSubmenu">
-                    <li>
-                        <a [routerLink]="['/welcome']">Entreprise</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/virtualzone']">Usine</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Atelier</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Ligne de production</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#mainSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Maintenance</a>
-                <ul class="collapse list-unstyled" id="mainSubmenu">
-                    <li>
-                        <a [routerLink]="['/welcome']">Entreprise</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/virtualzone']">Usine</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Atelier</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/historical']">Ligne de production</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Amdec</a>
-                <ul class="collapse list-unstyled" id="adminSubmenu">
-                    <li>
-                        <a [routerLink]="['/welcome']">Entreprise</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Stock</a>
-                <ul class="collapse list-unstyled" id="adminSubmenu">
-                    <li>
-                        <a [routerLink]="['/welcome']">Entreprise</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+<!DOCTYPE html>
+<html lang="fr">
 
-    <!-- Page Content  -->
-    <div id="content" [ngClass]="{'active': !menu}">
-        <!---- NavBar ---->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item" [hidden]="connected">
-                            <a class="nav-link" href="#"  (click)="open(content)">
-                                <i class="fas fa-sign-in-alt"></i>
-                                Connexion
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item" [hidden]="!connected">
-                            <a class="nav-link" href="#"  (click)="logout()">
-                                <i class="fas fa-sign-out-alt"></i>
-                                Déconnexion
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <button type="button" id="sidebarCollapse" [hidden]="!connected" class="btn btn-info" (click)="displayMenu()">
-                        <i class="fas fa-align-left"></i>
-                    </button>
-                </div>
-            </div>
-        </nav>
-        <!-- Begin Modal Connexion -->
-        <ng-template #content let-modal let-c="close" let-d="dismiss">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Connexion</h5>
-                <button type="button" class="close"  aria-label="Close" (click)="c('Close click')">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>
-                <form>
-                    <div class="form-group">
-                        <label for="login">Identifiant</label>
-                        <input type="login" [(ngModel)]="authentication.login"  class="form-control" id="login" name="login">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Mot de passe</label>
-                        <input type="password" [(ngModel)]="authentication.password" class="form-control" id="password" name="password">
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">se souvenir de moi</label>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" (click)="login()">Se connecter</button>
-            </div>
-        </ng-template>
-        <!-- End Modal Connexion -->
-        <!---- Body ---->
-        <router-outlet></router-outlet>
-    </div>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+  <a class="navbar-brand" routerLink="/"><img  width="150px" height="40px" src="assets/img/kriauto.png" alt=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
+
+    <ul class="navbar-nav">
+     <li class="nav-item dropdown" [hidden]="!islogged">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Administration
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <a class="dropdown-item" routerLink="/home">Action</a>
+        <a class="dropdown-item" routerLink="">Another action</a>
+        <a class="dropdown-item" routerLink="">Something else here</a>
+      </div>
+     </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="" (click)="openModal(template);false" [hidden]="islogged">Connexion</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="" (click)="logout();false"  [hidden]="!islogged">Déconnexion</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Authentification</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <alert type="success" [hidden]="failed">
+      <strong>Well done!</strong> {{error.message}}.
+    </alert>
+    <alert type="danger"  [hidden]="success">
+      <strong>Well done!</strong> {{error.message}}.
+    </alert>
+    <form [formGroup]="userForm">
+      <div class="form-group">
+        <label>Identifiant</label>
+        <input type="email" class="form-control" id="identifiant" formControlName="login" aria-describedby="emailHelp" placeholder="Identifiant">
+      </div>
+      <div class="form-group">
+        <label>Mot de passe</label>
+        <input type="password" class="form-control" id="password" formControlName="password" placeholder="Mot de passe">
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Se souvenir</label>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="login();false">Se connecter</button>
+    </form>  </div>
+</ng-template>
+
+<div style="min-height:100vh;"><router-outlet></router-outlet></div>
+
+<!-- Footer -->
+<footer class="py-3 bg-black">
+  <div class="container">
+    <p class="m-0 text-center text-white small">Copyright &copy; Kriauto 2019</p>
+  </div>
+</footer>
+
+</body>
+
+</html>
