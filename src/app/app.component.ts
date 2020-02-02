@@ -6,6 +6,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { UserService } from './user.service';
 import { User } from './user';
+import { VariableGlobals } from "./variableGlobals";
 
 
 @Component({
@@ -23,7 +24,7 @@ export class AppComponent implements OnInit {
   user     : User;
   error    : Error;
 
-  constructor(private router: Router, public fb: FormBuilder,private modalService: BsModalService, private userApi: UserService) {
+  constructor(private router: Router, public fb: FormBuilder,private modalService: BsModalService, private userApi: UserService, private variableglobas: VariableGlobals) {
     this.mainForm();
   }
 
@@ -48,13 +49,15 @@ export class AppComponent implements OnInit {
     this.userApi.loginApi(this.userForm.value)
       .subscribe(res => {
         this.user     = Object.assign(new User(),res);
-        this.islogged = true;
         this.failed   = false;
         this.success  = true;
-        localStorage.setItem('token',this.user.authToken);
+        localStorage.setItem('token',this.user.token);
         this.modalRef.hide();
-        this.router.navigate(['']);
-        console.log(" user  "+this.user.authToken);
+        console.log(" islogged1  "+this.variableglobas.islogged);
+        this.variableglobas.islogged = true;
+        console.log(" islogged2  "+this.variableglobas.islogged);
+        this.router.navigate(['/home']);
+        console.log(" token  "+this.user.token);
       }, err => {
         this.error   = Object.assign(new Error(),err.error);
         this.failed  = true;
@@ -64,7 +67,7 @@ export class AppComponent implements OnInit {
   }
 
   logout(){
-    this.islogged = false;
+    this.variableglobas.islogged = false;
     localStorage.removeItem('token');
     this.router.navigate(['']);
   }

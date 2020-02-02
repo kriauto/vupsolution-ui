@@ -26,7 +26,8 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HomeComponent } from './home/home.component';
-import {CommonInterceptor} from "./commonInterceptor";
+import { CommonInterceptor } from "./commonInterceptor";
+import { VariableGlobals } from "./variableGlobals"
 
 
 @NgModule({
@@ -60,9 +61,7 @@ import {CommonInterceptor} from "./commonInterceptor";
     TooltipModule.forRoot(),
     TypeaheadModule.forRoot()
   ],
-  providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: CommonInterceptor, multi: true},
-  ],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: CommonInterceptor, multi: true}, VariableGlobals],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
