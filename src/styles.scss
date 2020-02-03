@@ -73,6 +73,26 @@ img {
   color : white;
 }
 
+.logo {
+  font : caption;
+  color : white;
+  font-size : 30px;
+  background : -webkit-gradient(linear, left top, left bottom, from(#3c84bc), to(#49a4eb));
+  -webkit-background-clip : text;
+  -webkit-text-fill-color : transparent;
+
+}
+
+.info-account {
+  font: caption;
+  color : white;
+}
+
+.navbar-nav a {
+  font: caption;
+  color : white;
+}
+
 
 /* tamil */
 @font-face {

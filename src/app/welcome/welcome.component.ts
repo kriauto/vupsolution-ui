@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    console.log(" welcome const -> ");
+  }
 
   ngOnInit() {
+    console.log(" welcome ngOnInit -> ");
   }
 
 }

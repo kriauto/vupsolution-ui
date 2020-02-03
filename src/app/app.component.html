@@ -14,30 +14,30 @@
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
-  <a class="navbar-brand" routerLink="/"><img  width="150px" height="40px" src="assets/img/kriauto.png" alt=""></a>
+  <span class="navbar-brand" routerLink="/"><span  class="logo">Vup-solution</span></span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0"><span class="info-account" [hidden]="!variableglobas.islogged">Bienvenu : {{user.sex}} {{user.firstname}} {{user.lastname}}</span></ul>
 
     <ul class="navbar-nav">
      <li class="nav-item dropdown" [hidden]="!variableglobas.islogged">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Administration
+        <span class="info-account">Administration</span>
       </a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        <a class="dropdown-item" routerLink="/home">Action</a>
-        <a class="dropdown-item" routerLink="">Another action</a>
-        <a class="dropdown-item" routerLink="">Something else here</a>
+        <a class="dropdown-item" routerLink="/home"><span class="info-account">Action</span></a>
+        <a class="dropdown-item" routerLink="/welcome"><span class="info-account">Another action</span></a>
+        <a class="dropdown-item" routerLink=""><span class="info-account">Something else here</span></a>
       </div>
      </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="" (click)="openModal(template);false" [hidden]="variableglobas.islogged">Connexion</a>
+        <a class="nav-link" href="#" role="button" (click)="openModal(template)" [hidden]="variableglobas.islogged"><span class="info-account">Connexion</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="" (click)="logout();false"  [hidden]="!variableglobas.islogged">Déconnexion</a>
+        <a class="nav-link" href="/" role="button" (click)="logout()"  [hidden]="!variableglobas.islogged"><span class="info-account">Déconnexion</span></a>
       </li>
     </ul>
   </div>
@@ -79,7 +79,7 @@
 <!-- Footer -->
 <footer class="py-3 bg-black">
   <div class="container">
-    <p class="m-0 text-center text-white small">Copyright &copy; Kriauto 2019</p>
+    <p class="m-0 text-center text-white small">Copyright &copy; Vup-solution 2019</p>
   </div>
 </footer>
 

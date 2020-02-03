@@ -25,10 +25,13 @@ export class AppComponent implements OnInit {
   error    : Error;
 
   constructor(private router: Router, public fb: FormBuilder,private modalService: BsModalService, private userApi: UserService, private variableglobas: VariableGlobals) {
+    console.log(" app const -> ");
     this.mainForm();
+    this.checktoken();
   }
 
   ngOnInit() {
+    console.log(" ngOnInit -> ");
     this.user     = new User();
     this.error    = new Error();
     this.islogged = false ;
@@ -41,9 +44,8 @@ export class AppComponent implements OnInit {
     })
   }
 
-
-
   login(){
+    console.log(" login -> ");
     this.error    = new Error();
     console.log(" userForm -> "+this.userForm.get('login').value+this.userForm.get('password').value);
     this.userApi.loginApi(this.userForm.value)
@@ -64,6 +66,19 @@ export class AppComponent implements OnInit {
         this.success = false;
         console.log(" error "+this.error.message);
       });
+  }
+
+  checktoken(){
+    console.log(" checktoken -> ");
+    this.userApi.getProfileByToken()
+        .subscribe(res => {
+          this.variableglobas.islogged = true;
+          this.user     = Object.assign(new User(),res);
+          this.router.navigate(['/home']);
+        }, err => {
+          this.variableglobas.islogged = false;
+          this.router.navigate(['']);
+        });
   }
 
   logout(){
