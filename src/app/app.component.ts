@@ -4,9 +4,9 @@ import { FormGroup, FormBuilder } from "@angular/forms";
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
-import { UserService } from './user.service';
-import { User } from './user';
-import { VariableGlobals } from "./variableGlobals";
+import { UserService } from './service/user.service';
+import { User } from './model/user';
+import { VariableGlobals } from "./common/variableGlobals";
 
 
 @Component({

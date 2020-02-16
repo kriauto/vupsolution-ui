@@ -24,21 +24,66 @@
 
     <ul class="navbar-nav">
      <li class="nav-item dropdown" [hidden]="!variableglobas.islogged">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="info-account">Administration</span>
       </a>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        <a class="dropdown-item" routerLink="/home"><span class="info-account">Action</span></a>
-        <a class="dropdown-item" routerLink="/welcome"><span class="info-account">Another action</span></a>
-        <a class="dropdown-item" routerLink=""><span class="info-account">Something else here</span></a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <a class="dropdown-item" routerLink="/enterprise"><span class="info-account">Entreprise</span></a>
+        <a class="dropdown-item" routerLink="/factory"><span class="info-account">Atelier</span></a>
+        <a class="dropdown-item" routerLink="/productionline"><span class="info-account">Ligne Production</span></a>
+        <a class="dropdown-item" routerLink="/workplace"><span class="info-account">Poste</span></a>
+        <a class="dropdown-item" routerLink="/noncompliance"><span class="info-account">Non Conformité</span></a>
+        <a class="dropdown-item" routerLink="/operation"><span class="info-account">Opération</span></a>
+        <a class="dropdown-item" routerLink="/machine"><span class="info-account">Machine</span></a>
+        <a class="dropdown-item" routerLink="/skill"><span class="info-account">Compétence</span></a>
+        <a class="dropdown-item" routerLink="closeday"><span class="info-account">Jours Fermeture</span></a>
+        <a class="dropdown-item" routerLink="/calendar"><span class="info-account">Calendrier</span></a>
+        <a class="dropdown-item" routerLink="/role"><span class="info-account">Role</span></a>
+        <a class="dropdown-item" routerLink="/shift"><span class="info-account">Shift</span></a>
+        <a class="dropdown-item" routerLink="/employee"><span class="info-account">Employé</span></a>
+        <a class="dropdown-item" routerLink="/assignment"><span class="info-account">Affectation</span></a>
+        <a class="dropdown-item" routerLink="/client"><span class="info-account">Client</span></a>
+        <a class="dropdown-item" routerLink="/product"><span class="info-account">Produit</span></a>
+        <a class="dropdown-item" routerLink="/ordered"><span class="info-account">Commande</span></a>
+        <a class="dropdown-item" routerLink="/fabricationorder"><span class="info-account">Order Fabrication</span></a>
       </div>
      </li>
-      <li class="nav-item">
+     <li class="nav-item dropdown" [hidden]="!variableglobas.islogged">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="info-account">Production</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <a class="dropdown-item" routerLink="/prodplanning"><span class="info-account">Plannification</span></a>
+          <a class="dropdown-item" routerLink="/proddataentry"><span class="info-account">Saisie</span></a>
+          <a class="dropdown-item" routerLink="/prodsupervision"><span class="info-account">Supervision</span></a>
+        </div>
+     </li>
+     <li class="nav-item dropdown" [hidden]="!variableglobas.islogged">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="info-account">Qualité</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+          <a class="dropdown-item" routerLink="/qualplanning"><span class="info-account">Plannification</span></a>
+          <a class="dropdown-item" routerLink="/qualdataentry"><span class="info-account">Saisie</span></a>
+          <a class="dropdown-item" routerLink="/qualsupervision"><span class="info-account">Supervision</span></a>
+        </div>
+     </li>
+     <li class="nav-item dropdown" [hidden]="!variableglobas.islogged">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="info-account">Maintenance</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu4">
+          <a class="dropdown-item" routerLink="/mainplanning"><span class="info-account">Plannification</span></a>
+          <a class="dropdown-item" routerLink="/maindataentry"><span class="info-account">Saisie</span></a>
+          <a class="dropdown-item" routerLink="/mainsupervision"><span class="info-account">Supervision</span></a>
+        </div>
+     </li>
+     <li class="nav-item">
         <a class="nav-link" href="#" role="button" (click)="openModal(template)" [hidden]="variableglobas.islogged"><span class="info-account">Connexion</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/" role="button" (click)="logout()"  [hidden]="!variableglobas.islogged"><span class="info-account">Déconnexion</span></a>
-      </li>
+     </li>
+     <li class="nav-item">
+        <a class="nav-link" href="/" role="button" (click)="logout()" [hidden]="!variableglobas.islogged"><span class="info-account">Déconnexion</span></a>
+     </li>
     </ul>
   </div>
 </nav>
