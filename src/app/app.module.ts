@@ -54,7 +54,8 @@ import { QualdataentryComponent } from './component/qualdataentry/qualdataentry.
 import { QualsupervisionComponent } from './component/qualsupervision/qualsupervision.component';
 import { MainplanningComponent } from './component/mainplanning/mainplanning.component';
 import { MaindataentryComponent } from './component/maindataentry/maindataentry.component';
-import { MainsupervisionComponent } from './component/mainsupervision/mainsupervision.component'
+import { MainsupervisionComponent } from './component/mainsupervision/mainsupervision.component';
+import { ParameterComponent } from './component/parameter/parameter.component'
 
 
 @NgModule({
@@ -88,7 +89,8 @@ import { MainsupervisionComponent } from './component/mainsupervision/mainsuperv
     QualsupervisionComponent,
     MainplanningComponent,
     MaindataentryComponent,
-    MainsupervisionComponent
+    MainsupervisionComponent,
+    ParameterComponent
   ],
   imports: [
     BrowserModule,

@@ -29,8 +29,10 @@ import {QualsupervisionComponent} from "./component/qualsupervision/qualsupervis
 import {MainplanningComponent} from "./component/mainplanning/mainplanning.component";
 import {MaindataentryComponent} from "./component/maindataentry/maindataentry.component";
 import {MainsupervisionComponent} from "./component/mainsupervision/mainsupervision.component";
+import {ParameterComponent} from "./component/parameter/parameter.component";
 
 const routes: Routes = [
+  {path:"parameter", component:ParameterComponent},
   {path:"enterprise", component:EnterpriseComponent},
   {path:"factory", component:FactoryComponent},
   {path:"productionline", component:ProductionlineComponent},
